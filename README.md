@@ -18,6 +18,9 @@ subscribe by email using mailchimp
 <h2>Future</h2>
 subscribe with categories
 
+<h2>Open issues</h2>
+not clear why i need to use 'font-family: inherit' on button and input to get Inter font
+
 
 <h2>Reference</h2>
 <ul>

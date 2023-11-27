@@ -6,7 +6,6 @@ function MailchimpSubscribe() {
   const firstNameInputRef = useRef<HTMLInputElement>(null);
   const lastNameInputRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState<string>('');
-  const emailInputId = useId();
 
   const subscribe = async (e: FormEvent) => {
     e.preventDefault();
@@ -39,38 +38,27 @@ function MailchimpSubscribe() {
 
   return (
     <form className={styles.mailchimpForm} onSubmit={subscribe}>
-      <label htmlFor={emailInputId} className={styles.formLabel}>
-        {'Email Address'}
-      </label>
       <input
-        id={emailInputId}
         name="email"
-        placeholder="you@awesome.com"
+        placeholder="Your email"
         ref={emailInputRef}
         required
         type="email"
         className={styles.formInput}
       />
-
-      <label htmlFor="firstName" className={styles.formLabel}>
-        First Name
-      </label>
+      
       <input
-        id="firstName"
         name="firstName"
-        placeholder="John"
+        placeholder="First Name"
         ref={firstNameInputRef}
         type="text"
         className={styles.formInput}
+        required
       />
 
-      <label htmlFor="lastName" className={styles.formLabel}>
-        Last Name
-      </label>
       <input
-        id="lastName"
         name="lastName"
-        placeholder="Doe"
+        placeholder="Last Name"
         ref={lastNameInputRef}
         type="text"
         className={styles.formInput}

@@ -1,8 +1,6 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import MailchimpSubscribe from "@/components/mailchimpSubscribe";
+import MailchimpSubscribe from "@/components/mailchimp-subscribe";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
