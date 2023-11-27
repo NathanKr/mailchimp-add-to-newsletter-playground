@@ -9,9 +9,9 @@ subscribe by email using mailchimp
 
 <h2>Setup</h2>
 <ul>
-<li>MAILCHIMP_API_KEY : get from <a href='https://us21.admin.mailchimp.com/account/api/manage/#create'>here</a></li>
+<li>MAILCHIMP_API_KEY : get from <a href='https://admin.mailchimp.com/account/api/manage/#create'>here</a></li>
 <li>MAILCHIMP_API_SERVER : look at MAILCHIMP_API_KEY at the string after - .e.g us21</li>
-<li>MAILCHIMP_AUDIENCE_ID : click <a href='https://us21.admin.mailchimp.com/audience/settings?id=308239'>here</a> </li>
+<li>MAILCHIMP_AUDIENCE_ID : click <a href='https://admin.mailchimp.com/audience/settings?id=308239'>here</a> </li>
 </ul>
 
 
