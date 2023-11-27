@@ -1,0 +1,39 @@
+/* MailchimpSubscribe.module.css */
+
+.mailchimpForm {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .formLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .formInput {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .formButton {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .formMessage {
+    margin-top: 16px;
+    color: #666;
+    font-size: 14px;
+  }
+  

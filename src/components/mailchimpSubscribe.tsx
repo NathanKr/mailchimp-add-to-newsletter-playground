@@ -1,21 +1,16 @@
 import React, { useRef, useState, FormEvent, useId } from 'react';
+import styles from "@/styles/mailchimp-subscribe.module.css"; 
 
 function MailchimpSubscribe() {
-  // 1. Create a reference to the input fields so we can fetch/clear their values.
   const emailInputRef = useRef<HTMLInputElement>(null);
   const firstNameInputRef = useRef<HTMLInputElement>(null);
   const lastNameInputRef = useRef<HTMLInputElement>(null);
-
-  // 2. Hold a message in state to handle the response from our API.
   const [message, setMessage] = useState<string>('');
   const emailInputId = useId();
-  const firstNameId = useId();
-  const lastNameId = useId();
 
   const subscribe = async (e: FormEvent) => {
     e.preventDefault();
 
-    // 3. Send a request to our API with the user's information.
     const res = await fetch('/api/subscribe', {
       body: JSON.stringify({
         email: emailInputRef.current?.value,
@@ -31,22 +26,22 @@ function MailchimpSubscribe() {
     const { error } = await res.json();
 
     if (error) {
-      // 4. If there was an error, update the message in state.
       setMessage(error);
       return;
     }
 
-    // 5. Clear the input values and show a success message.
-    if (emailInputRef.current) emailInputRef.current.value = '';
-    if (firstNameInputRef.current) firstNameInputRef.current.value = '';
-    if (lastNameInputRef.current) lastNameInputRef.current.value = '';
+    emailInputRef.current && (emailInputRef.current.value = '');
+    firstNameInputRef.current && (firstNameInputRef.current.value = '');
+    lastNameInputRef.current && (lastNameInputRef.current.value = '');
 
     setMessage('Success! 🎉 You are now subscribed to the newsletter.');
   };
 
   return (
-    <form onSubmit={subscribe}>
-      <label htmlFor={emailInputId}>{'Email Address'}</label>
+    <form className={styles.mailchimpForm} onSubmit={subscribe}>
+      <label htmlFor={emailInputId} className={styles.formLabel}>
+        {'Email Address'}
+      </label>
       <input
         id={emailInputId}
         name="email"
@@ -54,33 +49,39 @@ function MailchimpSubscribe() {
         ref={emailInputRef}
         required
         type="email"
+        className={styles.formInput}
       />
-      
-      <label htmlFor={firstNameId}>First Name</label>
+
+      <label htmlFor="firstName" className={styles.formLabel}>
+        First Name
+      </label>
       <input
-        id={firstNameId}
+        id="firstName"
         name="firstName"
         placeholder="John"
         ref={firstNameInputRef}
-        required
         type="text"
+        className={styles.formInput}
       />
 
-      <label htmlFor={lastNameId}>Last Name</label>
+      <label htmlFor="lastName" className={styles.formLabel}>
+        Last Name
+      </label>
       <input
-        id={lastNameId}
+        id="lastName"
         name="lastName"
         placeholder="Doe"
         ref={lastNameInputRef}
         type="text"
+        className={styles.formInput}
       />
 
-      <div>
-        {message
-          ? message
-          : `I'll only send emails when new content is posted. No spam.`}
+      <div className={styles.formMessage}>
+        {message ? message : `I'll only send emails when new content is posted. No spam.`}
       </div>
-      <button type="submit">{'✨ Subscribe 💌'}</button>
+      <button type="submit" className={styles.formButton}>
+        {'✨ Subscribe 💌'}
+      </button>
     </form>
   );
 }
