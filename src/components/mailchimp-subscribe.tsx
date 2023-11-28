@@ -33,7 +33,7 @@ function MailchimpSubscribe() {
     firstNameInputRef.current && (firstNameInputRef.current.value = '');
     lastNameInputRef.current && (lastNameInputRef.current.value = '');
 
-    setMessage('Success! 🎉 You are now subscribed to the newsletter.');
+    setMessage('Success! 🎉 A confirmation email is send to you , click on it to subscribe to the newsletter.');
   };
 
   return (
