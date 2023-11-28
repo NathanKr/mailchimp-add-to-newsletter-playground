@@ -18,7 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       process.env.MAILCHIMP_AUDIENCE_ID ?? "",
       {
         email_address: email,
-        status: "subscribed",
+        status: "pending",// --- this will force confirmation
         merge_fields: {
           FNAME: firstName,
           LNAME: lastName,
